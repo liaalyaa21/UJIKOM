@@ -271,3 +271,19 @@ function closeAttachment() {
     preview.style.display = "none";
     pdfContainer.innerHTML = "";
 }
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+    const btn = document.querySelector('.menu-toggle');
+
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+
+    // toggle icon
+    if (sidebar.classList.contains('active')) {
+        btn.innerHTML = "✕";
+    } else {
+        btn.innerHTML = "☰";
+    }
+}

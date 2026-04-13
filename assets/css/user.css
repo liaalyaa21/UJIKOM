@@ -47,17 +47,6 @@ body {
     transform: translateY(-1px);
 }
 
-
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .navbar-admin {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-}
-
 /* ========== CONTAINER ========== */
 .container {
     padding: 25px;
@@ -210,14 +199,6 @@ body {
     font-style: italic;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .kanban {
-        flex-direction: column;
-    }
-}
-
-/* BACKDROP */
 /* BACKDROP */
 .modal {
     display: none;
@@ -336,5 +317,113 @@ body {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* ================= RESPONSIVE EXTRA ================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    .kanban {
+        gap: 15px;
+    }
+
+    .column {
+        min-height: auto;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+
+/* MOBILE BESAR */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-right {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* ADD TASK */
+    .add-task {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-task input,
+    .add-task button {
+        width: 100%;
+    }
+
+    /* KANBAN JADI STACK */
+    .kanban {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
+    }
+}
+
+
+/* MOBILE KECIL */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .navbar h2 {
+        font-size: 18px;
+    }
+
+    .container h2 {
+        font-size: 18px;
+    }
+
+    .column-header {
+        font-size: 14px;
+    }
+
+    .task-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* MODAL FULL WIDTH */
+    .modal-content {
+        width: 95%;
+        padding: 18px;
+    }
+
+    /* FORM */
+    .modal-content input,
+    .modal-content textarea,
+    .modal-content select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .btn-save {
+        padding: 10px;
     }
 }

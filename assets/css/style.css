@@ -120,6 +120,19 @@ input[type="password"]:focus {
     margin-top: 12px;
 }
 
+.login-box a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+/* hover effect */
+.login-box a:hover {
+    color: #5568d3;
+
+}
+
 
 /* ================== Admin ====================== */
 
@@ -300,17 +313,6 @@ input[type="password"]:focus {
     background: white;
     padding: 20px;
     border-radius: 12px;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
-    
-    .main {
-        width: 100%;
-    }
 }
 
 /* =========================
@@ -527,16 +529,6 @@ BUTTON STYLE
     background: #3730a3;
 }
 
-/* =========================
-RESPONSIVE
-========================= */
-@media (max-width: 500px) {
-    .modal-content {
-        width: 90%;
-        padding: 18px;
-    }
-}
-
 /* ===== TABLE BOX ===== */
 .table-box {
     margin-top: 20px;
@@ -683,4 +675,306 @@ table a:hover {
     transition: 0.3s;
     border: none;
 
+}
+
+.close-sidebar {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* hanya muncul kalau sidebar aktif & di mobile */
+@media (max-width: 1024px) {
+    .sidebar.active .close-sidebar {
+        display: block;
+    }
+}
+
+/* ================= RESPONSIVE FINAL CLEAN ================= */
+
+/* ===== GLOBAL ===== */
+.main {
+    overflow-x: hidden;
+}
+
+button,
+.card,
+.sidebar ul li {
+    transition: 0.2s ease;
+}
+
+/* tombol menu */
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ================= DESKTOP (>1024px) ================= */
+/* default: sidebar normal (tidak diubah) */
+
+
+/* ================= TABLET + MOBILE ================= */
+@media (max-width: 1024px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .layout {
+        flex-direction: column;
+        position: relative;
+    }
+
+    /* SIDEBAR JADI HIDDEN DRAWER */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 240px;
+        height: 100vh;
+        background: #fff;
+        z-index: 1000;
+        transition: left 0.3s ease;
+
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* OVERLAY */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 999;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    /* MAIN FULL */
+    .main {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    /* NAVBAR */
+    .navbar-admin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* CARD */
+    .cards {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 1 1 45%;
+    }
+
+    /* TABLE */
+    .table-box {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    /* BUTTON */
+    .btn-add,
+    .btn-logout {
+        width: 100%;
+    }
+
+    /* sidebar profile sembunyi */
+    .sidebar-profile {
+        display: none;
+    }
+}
+
+
+/* ================= MOBILE KHUSUS ================= */
+@media (max-width: 768px) {
+
+    /* LOGIN */
+    .login-form {
+        width: 90%;
+        padding: 25px;
+    }
+
+    /* NAV */
+    .navbar-admin {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    /* CARD */
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+
+/* ================= MOBILE KECIL ================= */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .login-logo h1 {
+        font-size: 22px;
+    }
+
+    .login-logo p {
+        font-size: 12px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .btn-login {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .sidebar {
+        padding: 10px;
+    }
+
+    .sidebar h2 {
+        font-size: 16px;
+    }
+
+    .nav-left span:last-child {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .attachmentModal-content {
+        padding: 40px 10px 15px;
+    }
+
+    .attachmentModal-img,
+    .attachmentModal-pdf iframe {
+        height: 60vh;
+    }
+
+    .login-box {
+        padding: 10px;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+}
+
+/* ================= FIX TABLE TANPA UBAH HTML ================= */
+
+@media (max-width: 768px) {
+
+    /* kolom lampiran (ke-6) */
+    table td:nth-child(6) {
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    table td:nth-child(6) a,
+    table td:nth-child(6) button {
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 18px;
+    }
+
+    /* kolom action (ke-7) */
+    table td:nth-child(7) {
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    table td:nth-child(7) button {
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 18px;
+    }
+}
+
+/* ================= FIX NAVBAR MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .navbar-admin {
+        flex-direction: row; /* jangan column */
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* kiri (menu + title) */
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-left span:last-child {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    /* kanan (button + user) */
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* tombol jangan full */
+    .btn-add,
+    .btn-logout {
+        width: auto;
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    /* username disembunyiin biar ga penuh */
+    .user-name span {
+        display: none;
+    }
 }

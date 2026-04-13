@@ -4,8 +4,9 @@ $nama = $_SESSION['user'] ?? 'User';
 $inisial = strtoupper(substr($nama, 0, 1));
 ?>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
+
+    <button class="close-sidebar" onclick="toggleSidebar()">✕</button>
 
     <!-- HEADER -->
     <div class="sidebar-header">
