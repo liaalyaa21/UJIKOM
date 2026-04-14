@@ -171,15 +171,6 @@ $done = mysqli_query($koneksi, "SELECT * FROM tasks WHERE user_id='$user_id' AND
                             '<?= htmlspecialchars($row['attachment'], ENT_QUOTES) ?>' )">
                             Detail
                         </button>
-                        <button class="btn edit" onclick="openEditModal(
-                            <?= $row['id'] ?>,
-                            '<?= htmlspecialchars($row['title'], ENT_QUOTES) ?>',
-                            '<?= htmlspecialchars($row['description'], ENT_QUOTES) ?>',
-                            '<?= $row['deadline'] ?>',
-                            '<?= $row['status'] ?>'
-                        )">
-                            Edit
-                        </button>
                     </div>
                 </div>
             <?php } ?>
