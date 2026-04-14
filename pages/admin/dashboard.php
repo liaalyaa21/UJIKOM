@@ -38,30 +38,6 @@ $tasks = mysqli_query($koneksi, "
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <style>
-        .badge.open { color: red; font-weight: bold; }
-        .badge.in_progress { color: orange; font-weight: bold; }
-        .badge.done { color: green; font-weight: bold; }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table th, table td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
-
-        .table-box {
-            margin-top: 20px;
-            background: #fff;
-            padding: 15px;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 <body>
 

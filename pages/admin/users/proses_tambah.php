@@ -21,7 +21,7 @@ VALUES ('$username', '$passwordHash', '$role_id')");
 
 // redirect
 if ($query) {
-    header("Location: users.php?status=sukses");
+    header("Location: users.php?status=add");
 } else {
     header("Location: users.php?status=gagal");
 }

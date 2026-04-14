@@ -12,8 +12,9 @@
 <div class="login-box">
     <div class="login-form">
         <div class="login-logo">
+            <img src="/taskhub/assets/img/tasks.png" alt="Logo" style="width:100px; margin-bottom:10px;">
             <h1>🔐 LOGIN</h1>
-            <p>Sistem Manajemen Tugas Karyawan</p>
+            <p>Sistem Manajemen Tugas</p>
         </div>
         <form method="POST" action="proses_login.php">
             <div class="form-group">

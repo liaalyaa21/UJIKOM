@@ -220,6 +220,18 @@ input[type="password"]:focus {
     font-size: 14px;
     align-items: center;
 }
+
+.close-sidebar {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 /* ================= MAIN ================= */
 .main {
     flex: 1;
@@ -265,6 +277,10 @@ input[type="password"]:focus {
     cursor: pointer;
 }
 
+.btn-add:hover{
+    background: #357937;
+}
+
 /* USER */
 .user-name {
     display: flex;
@@ -288,6 +304,7 @@ input[type="password"]:focus {
     background: #dc2626;
 }
 
+/* =============== DASHBOARD ADMIN ======================== */
 /* CONTENT */
 .content {
     margin-top: 20px;
@@ -305,231 +322,10 @@ input[type="password"]:focus {
     padding: 15px;
     border-radius: 12px;
     flex: 1;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 10px rgba(63, 105, 223, 0.603);
 }
 
-/* TABLE */
-.table-box {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-}
-
-/* =========================
-MODAL BACKDROP
-========================= */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(6px);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-/* =========================
-   MODAL CARD
-   ========================= */
-   .modal-content {
-    width: 420px;
-    max-width: 90%;
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-    animation: modalPop 0.25s ease-in-out;
-}
-
-/* =========================
-ANIMATION
-========================= */
-@keyframes modalPop {
-    from {
-        transform: scale(0.85);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* =========================
-TITLE
-========================= */
-#modalTitle {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: #222;
-}
-
-/* =========================
-INPUT STYLE
-========================= */
-.modal-content input,
-.modal-content textarea,
-.modal-content select {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    outline: none;
-    font-size: 14px;
-    transition: 0.2s;
-    box-sizing: border-box;
-}
-
-/* focus effect */
-.modal-content input:focus,
-.modal-content textarea:focus,
-.modal-content select:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-/* =========================
-BUTTON STYLE
-========================= */
-.modal-content button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-/* SAVE BUTTON */
-.modal-content button[type="submit"] {
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
-    color: white;
-}
-
-.modal-content button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
-}
-
-/* CANCEL BUTTON */
-.modal-content button[type="button"] {
-    background: #f3f4f6;
-    color: #333;
-    margin-top: 8px;
-}
-
-.modal-content button[type="button"]:hover {
-    background: #e5e7eb;
-}
-
-/* modal lampiran */
-.attachmentModal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(6px);
-    justify-content: center;
-    align-items: center;
-}
-
-/* CONTENT */
-.attachmentModal-content {
-    position: relative;
-    background: #fff;
-    padding: 50px 20px 20px; /* ⬅️ ruang atas untuk tombol X */
-    border-radius: 14px;
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
-    overflow: auto;
-    text-align: center;
-    animation: pop .2s ease;
-}
-
-/* ANIMATION */
-@keyframes pop {
-    from { transform: scale(.85); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* CLOSE BUTTON FIX */
-.attachmentModal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    width: 38px;
-    height: 38px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 22px;
-    cursor: pointer;
-
-    color: #000000;
-
-    transition: 0.25s ease;
-}
-
-.attachmentModal-close:hover {
-    color: red;
-    transform: scale(1.1);
-}
-
-/* IMAGE */
-.attachmentModal-img {
-    max-width: 100%;
-    max-height: 75vh;
-    object-fit: contain;
-    border-radius: 10px;
-    display: none;
-}
-
-/* PDF */
-.attachmentModal-pdf iframe {
-    width: 100%;
-    height: 75vh;
-    border: none;
-    border-radius: 10px;
-}
-
-/* FALLBACK */
-.attachment-fallback {
-    display: none;
-    padding: 25px;
-    text-align: center;
-}
-
-.attachment-icon {
-    font-size: 60px;
-    margin-bottom: 10px;
-}
-
-/* DOWNLOAD BUTTON */
-.download-btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    color: #4f46e5;
-    text-decoration: none;
-    transition: 0.2s;
-}
-
-.download-btn:hover {
-    background: #3730a3;
-}
-
-/* ===== TABLE BOX ===== */
+/* ===== TABLE BOX  ===== */
 .table-box {
     margin-top: 20px;
     background: #ffffff;
@@ -552,7 +348,7 @@ table {
 /* HEADER */
 table thead {
     justify-items: center;
-    background: #f9fafb;
+    background: #e2e9f0;
 }
 
 table th {
@@ -677,15 +473,205 @@ table a:hover {
 
 }
 
-.close-sidebar {
+/* =====================
+MODAL BACKDROP DASHBOARD 
+========================*/
+.modal {
     display: none;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 22px;
-    background: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* MODAL CARD EDIT */
+.modal-content {
+    width: 420px;
+    max-width: 90%;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    animation: modalPop 0.25s ease-in-out;
+}
+
+@keyframes modalPop {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* TITLE */
+#modalTitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #222;
+}
+
+/* INPUT STYLE */
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+/* focus effect */
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* BUTTON STYLE */
+.modal-content button {
+    width: 100%;
+    padding: 10px;
     border: none;
+    border-radius: 10px;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+/* SAVE BUTTON */
+.modal-content button[type="submit"] {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+/* CANCEL BUTTON */
+.modal-content button[type="button"] {
+    background: #f3f4f6;
+    color: #333;
+    margin-top: 8px;
+}
+
+.modal-content button[type="button"]:hover {
+    background: #e5e7eb;
+}
+
+/* ============
+modal lampiran 
+===============*/
+.attachmentModal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTENT */
+.attachmentModal-content {
+    position: relative;
+    background: #fff;
+    padding: 50px 20px 20px; /* ⬅️ ruang atas untuk tombol X */
+    border-radius: 14px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow: auto;
+    text-align: center;
+    animation: pop .2s ease;
+}
+
+/* ANIMATION */
+@keyframes pop {
+    from { transform: scale(.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* CLOSE BUTTON FIX */
+.attachmentModal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000000;
+    transition: 0.25s ease;
+}
+
+.attachmentModal-close:hover {
+    color: red;
+    transform: scale(1.1);
+}
+
+/* IMAGE */
+.attachmentModal-img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 10px;
+    display: none;
+}
+
+/* PDF */
+.attachmentModal-pdf iframe {
+    width: 100%;
+    height: 75vh;
+    border: none;
+    border-radius: 10px;
+}
+
+/* FALLBACK */
+.attachment-fallback {
+    display: none;
+    padding: 25px;
+    text-align: center;
+}
+
+.attachment-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    color: #4f46e5;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    color: #3730a3;
 }
 
 /* hanya muncul kalau sidebar aktif & di mobile */
@@ -695,7 +681,7 @@ table a:hover {
     }
 }
 
-/* ================= RESPONSIVE FINAL CLEAN ================= */
+/* ================= RESPONSIVE  ================= */
 
 /* ===== GLOBAL ===== */
 .main {

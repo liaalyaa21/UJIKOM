@@ -14,7 +14,7 @@ function openDetailModal(title, desc, deadline, status, attachment) {
     let attachEl = document.getElementById("d_attachment");
 
     if (attachment && attachment !== 'null' && attachment !== '') {
-        attachEl.innerHTML = `<a href="../../assets/upload/${encodeURIComponent(attachment)}" target="_blank">Lihat File</a>`;
+        attachEl.innerHTML = `<a href="../../assets/upload/${encodeURIComponent(attachment)}" target="_blank">Download file</a>`;
     } else {
         attachEl.innerText = "-";
     }
