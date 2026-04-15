@@ -41,6 +41,37 @@ function closeEditModal() {
     document.getElementById("editModal").style.display = "none";
 }
 
+function mulaiTask(id) {
+    fetch('mulai.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'id=' + id + '&status=in_progress'
+    })
+    .then(res => res.text())
+    .then(response => {
+        
+        // notif sukses
+        Swal.fire({
+            icon: "success",
+            title: "Selamat!",
+            text: "Selamat mengerjakan tugas 🎉",
+            timer: 1500,
+            showConfirmButton: false
+        });
+
+        // reload biar card pindah
+        setTimeout(() => {
+            location.reload();
+        }, 1500);
+
+    })
+    .catch(() => {
+        Swal.fire("Error", "Gagal memulai tugas", "error");
+    });
+}
+
 // Logout
 function confirmLogout() {
     Swal.fire({
@@ -76,4 +107,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    if (statusUpdate === "tidak_boleh_kembali") {
+        Swal.fire({
+            icon: "warning",
+            title: "Tidak bisa!",
+            text: "Tugas sudah dikerjakan, tidak bisa berubah"
+        });
+    }
+
+    if (statusUpdate === "harus_upload") {
+        Swal.fire({
+            icon: "warning",
+            title: "Upload wajib!",
+            text: "Harus upload file sebelum mengerjakan tugas ⚠️"
+        });
+    }
 });

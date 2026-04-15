@@ -1,20 +1,33 @@
 <?php
+// Mulai session
 session_start();
+
+// Penanda halaman aktif (biasanya untuk highlight menu sidebar/navbar)
 $page ='tasks';
+
+// Menghubungkan ke database
 include '../../../config/koneksi.php';
 
-// cek login & admin
+// 🔐 Cek apakah user sudah login & apakah role = admin (1)
 if (!isset($_SESSION['user']) || $_SESSION['role'] != 1) {
+    // Jika tidak, redirect ke halaman login
     header("Location: /taskhub/pages/auth/login/login.php");
     exit;
 }
 
+// Ambil semua data users (sebenarnya tidak dipakai karena ditimpa di bawah)
 $users = mysqli_query($koneksi, "SELECT * FROM users");
 
+// Ambil nama user dari session
 $nama = $_SESSION['user'];
+
+// Ambil huruf pertama sebagai inisial (untuk avatar biasanya)
 $inisial = strtoupper(substr($nama, 0, 1));
 
-// ambil data task + join user
+// Ambil data user dengan role "user" (role_id = 2), urut berdasarkan username
+$users = mysqli_query($koneksi, "SELECT * FROM users WHERE role_id = 2 ORDER BY username ASC");
+
+// Ambil data task + join ke tabel users untuk mendapatkan username
 $tasks = mysqli_query($koneksi, "
     SELECT tasks.*, users.username 
     FROM tasks 

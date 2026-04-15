@@ -12,8 +12,7 @@ if (!isset($_SESSION['user']) || $_SESSION['role'] != 1) {
 $nama = $_SESSION['user'];
 $inisial = strtoupper(substr($nama, 0, 1));
 
-// ambil user untuk dropdown/modal
-$users = mysqli_query($koneksi, "SELECT id, username FROM users");
+$users = mysqli_query($koneksi, "SELECT * FROM users WHERE role_id = 2 ORDER BY username ASC");
 
 // statistik
 $totalUsers = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM users"))['total'];

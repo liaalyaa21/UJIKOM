@@ -47,17 +47,17 @@
 
             <div class="form-group">
                 <label>Judul</label>
-                <input type="text" name="title" id="e_title">
+                <input type="text" name="title" id="e_title" readonly>
             </div>
 
             <div class="form-group">
                 <label>Deskripsi</label>
-                <textarea name="description" id="e_description"></textarea>
+                <textarea name="description" id="e_description" readonly></textarea>
             </div>
 
             <div class="form-group">
                 <label>Deadline</label>
-                <input type="date" name="deadline" id="e_deadline">
+                <input type="date" name="deadline" id="e_deadline" readonly>
             </div>
 
             <div class="form-group">
@@ -70,8 +70,8 @@
             </div>
 
             <div class="form-group">
-                <label>Attachment (opsional)</label>
-                <input type="file" name="attachment">
+                <label>Attachment </label>
+                <input type="file" name="attachment" required>
             </div>
 
             <button type="submit" class="btn-save">Update</button>

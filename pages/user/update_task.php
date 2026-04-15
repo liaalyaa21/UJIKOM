@@ -1,43 +1,34 @@
 <?php
 include '../../config/koneksi.php';
 
-$id = $_POST['id'];
-$title = $_POST['title'];
-$desc = $_POST['description'];
-$deadline = $_POST['deadline'];
+$id = (int) $_POST['id'];
 $status = $_POST['status'];
 
-// upload file
-if (!empty($_FILES['attachment']['name'])) {
+// ambil data lama
+$getTask = mysqli_query($koneksi, "SELECT status, attachment FROM tasks WHERE id=$id");
+$old = mysqli_fetch_assoc($getTask);
 
-    $file = $_FILES['attachment']['name'];
-    $tmp = $_FILES['attachment']['tmp_name'];
-
-    move_uploaded_file($tmp, "../../assets/upload/" . $file);
-
-    $query = mysqli_query($koneksi, "
-        UPDATE tasks SET
-        title='$title',
-        description='$desc',
-        deadline='$deadline',
-        status='$status',
-        attachment='$file'
-        WHERE id=$id
-    ");
-
-} else {
-
-    $query = mysqli_query($koneksi, "
-        UPDATE tasks SET
-        title='$title',
-        description='$desc',
-        deadline='$deadline',
-        status='$status'
-        WHERE id=$id
-    ");
+// ❌ larang progress → open
+if ($old['status'] === "in_progress" && $status === "open") {
+    header("Location: dashboard.php?status=tidak_boleh_kembali");
+    exit;
 }
 
-// 🔥 redirect + status
+// upload file
+$file = $_FILES['attachment']['name'];
+$tmp = $_FILES['attachment']['tmp_name'];
+
+move_uploaded_file($tmp, "../../assets/upload/" . $file);
+
+// update
+$query = mysqli_query($koneksi, "
+    UPDATE tasks SET
+    status='$status',
+    attachment='$file'
+    WHERE id=$id
+");
+
+// redirect
 if ($query) {
     header("Location: dashboard.php?status=edit");
 } else {
