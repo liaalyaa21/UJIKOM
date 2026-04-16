@@ -118,7 +118,7 @@ $tasks = mysqli_query($koneksi, "
                                 <i class="fa-regular fa-pen-to-square"></i>
                                 </button>
 
-                                <button onclick="deleteTask(<?= $t['id'] ?>)" class="btn-delete">
+                                <button onclick="deleteTask(<?= $t['id'] ?>, 'dashboard')" class="btn-delete">
                                 <i class="fas fa-trash"></i>
                                 </button>
                             </td>

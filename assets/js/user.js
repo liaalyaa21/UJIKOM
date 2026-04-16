@@ -14,7 +14,7 @@ function openDetailModal(title, desc, deadline, status, attachment) {
     let attachEl = document.getElementById("d_attachment");
 
     if (attachment && attachment !== 'null' && attachment !== '') {
-        attachEl.innerHTML = `<a href="../../assets/upload/${encodeURIComponent(attachment)}" target="_blank">Download file</a>`;
+        attachEl.innerHTML = `<a href="../../assets/upload/${encodeURIComponent(attachment)}" target="_blank">Lihat file</a>`;
     } else {
         attachEl.innerText = "-";
     }
@@ -112,14 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
             icon: "warning",
             title: "Tidak bisa!",
             text: "Tugas sudah dikerjakan, tidak bisa berubah"
-        });
-    }
-
-    if (statusUpdate === "harus_upload") {
-        Swal.fire({
-            icon: "warning",
-            title: "Upload wajib!",
-            text: "Harus upload file sebelum mengerjakan tugas ⚠️"
         });
     }
 });

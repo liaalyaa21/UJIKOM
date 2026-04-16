@@ -26,13 +26,22 @@ function openAddTask() {
     document.querySelectorAll("#userFields input, #userFields select")
         .forEach(el => el.required = false);
 
+    // ❗ TAPI attachment dibuat opsional
+    document.getElementById("attachment").required = false;
     showModal();
 }
 
 
 // ===== EDIT TASK =====
 function editTask(id, title, desc, deadline, user_id, status) {
-    
+
+    // 🔥 RESET dulu biar bersih
+    const form = document.getElementById("mainForm");
+    form.reset();
+
+    document.querySelectorAll("#mainForm input, #mainForm textarea, #mainForm select")
+        .forEach(el => el.required = false);
+
     document.getElementById("modalTitle").innerText = "Edit Task";
     
     document.getElementById("dataId").value = id;
@@ -46,12 +55,23 @@ function editTask(id, title, desc, deadline, user_id, status) {
     
     document.getElementById("taskFields").style.display = "block";
     document.getElementById("userFields").style.display = "none";
-    
+
+    // ✅ hanya field penting yang wajib
+    document.getElementById("title").required = true;
+    document.getElementById("description").required = true;
+
+    // ❗ attachment tetap opsional
+    document.getElementById("attachment").required = false;
+
     showModal();
 }
 
 // ===== DELETE TASK =====
 function deleteTask(id) {
+    let path = window.location.pathname;
+
+    let from = path.includes("dashboard") ? "dashboard" : "tasks";
+
     Swal.fire({
         title: 'Yakin hapus?',
         text: "Data tidak bisa dikembalikan!",
@@ -61,7 +81,7 @@ function deleteTask(id) {
         confirmButtonText: 'Hapus'
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = "proses_hapus.php?id=" + id;
+            window.location.href = "/taskhub/pages/admin/tasks/proses_hapus.php?id=" + id + "&from=" + from;
         }
     });
 }

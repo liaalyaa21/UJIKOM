@@ -63,9 +63,6 @@ $done = mysqli_query($koneksi, "SELECT * FROM tasks WHERE user_id='$user_id' AND
                 <div class="task-card">
                     <div class="card-top">
                         <h4><?= htmlspecialchars($row['title']); ?></h4>
-                        <span class="badge <?= $row['status']; ?>">
-                            <?= strtoupper($row['status']); ?>
-                        </span>
                     </div>
 
                     <div class="card-body">
@@ -102,9 +99,6 @@ $done = mysqli_query($koneksi, "SELECT * FROM tasks WHERE user_id='$user_id' AND
                 <div class="task-card">
                     <div class="card-top">
                         <h4><?= htmlspecialchars($row['title']); ?></h4>
-                        <span class="badge <?= $row['status']; ?>">
-                            <?= strtoupper($row['status']); ?>
-                        </span>
                     </div>
 
                     <div class="card-body">
@@ -147,9 +141,6 @@ $done = mysqli_query($koneksi, "SELECT * FROM tasks WHERE user_id='$user_id' AND
                 <div class="task-card">
                     <div class="card-top">
                         <h4><?= htmlspecialchars($row['title']); ?></h4>
-                        <span class="badge <?= $row['status']; ?>">
-                            <?= strtoupper($row['status']); ?>
-                        </span>
                     </div>
 
                     <div class="card-body">

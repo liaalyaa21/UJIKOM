@@ -63,7 +63,6 @@
             <div class="form-group">
                 <label>Status</label>
                 <select name="status" id="e_status">
-                    <option value="open">Open</option>
                     <option value="in_progress">Progress</option>
                     <option value="done">Done</option>
                 </select>
@@ -71,7 +70,7 @@
 
             <div class="form-group">
                 <label>Attachment </label>
-                <input type="file" name="attachment" required>
+                <input type="file" name="attachment">
             </div>
 
             <button type="submit" class="btn-save">Update</button>
