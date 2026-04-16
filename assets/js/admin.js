@@ -208,6 +208,15 @@ window.addEventListener("DOMContentLoaded", () => {
             Swal.fire("Berhasil", "User berhasil dihapus", "success");
         }
 
+        // 🔥 TAMBAHAN INI
+        else if (status === "duplikat") {
+            Swal.fire({
+                icon: "error",
+                title: "Gagal!",
+                text: "Username sudah digunakan!",
+                confirmButtonColor: "#ef4444"
+            });
+        }
     }
 
     // bersihin URL
